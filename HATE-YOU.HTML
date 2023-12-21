@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HATE-YOU.com &copy; </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	 body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            /* Adicionando imagem de fundo */
+            background-image: url(https://i.redd.it/wg8tkqj40d7c1.png); /* Atualize o nome do arquivo e o caminho, se necess?rio */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #000000;
+        }
+		
+		.header {
+			background-color: #070108fb;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			height: 60px;
+			padding: 0 20px;
+			box-shadow: 0 4px 4px rgba(0,0,0,.2);
+		}
+		
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			margin-right: auto;
+		}
+		
+		.search {
+			display: flex;
+			align-items: center;
+			margin-left: 20px;
+			padding: 5px;
+			background-color: #fff;
+			border-radius: 20px;
+		}
+		
+		.search input[type="text"] {
+			border: none;
+			padding: 5px;
+			font-size: 14px;
+			flex: 1;
+		}
+		
+		.search button {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			margin-left: 10px;
+			font-size: 14px;
+			color: #000000;
+		}
+		
+		.main {
+			display: flex;
+			flex-direction: row;
+			margin-top: 20px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0,0,0,.2);
+			border-radius: 5px;
+		}
+		
+		.left-column {
+			flex: 1;
+			margin-right: 20px;
+		}
+		
+		.right-column {
+			flex: 1;
+			margin-left: 20px;
+		}
+		
+		.footer {
+			background-color: #f0f2f5;
+			color: #33333386;
+			padding: 20px;
+			font-size: 12px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">HATE-YOU.com &copy; 2023</div>
+      
+	</div>
+	
+	<body>
+        <h1>Tell me your name bitch</h1>
+        <p>Tell me your name bitch!:</p>
+        <input type="text" id="nameInput">
+        <button onclick="showName()">click!</button>
+        <p id="greeting"></p>
+        
+        <script>
+            function showName() {
+                var name = document.getElementById("nameInput").value;
+                document.getElementById("greeting").innerHTML = "hey my bro, " + name + "!";
+            }
+        </script>
+    </body>
+    <body>
+        <h1>Name of the person you hate:</h1>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput">
+            <button onclick="sendMessage()">!</button>
+        </div>
+        
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_AUTH_DOMAIN",
+                databaseURL: "YOUR_DATABASE_URL",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_STORAGE_BUCKET",
+                messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+                appId: "YOUR_APP_ID",
+                measurementId: "YOUR_MEASUREMENT_ID"
+            };
+            firebase.initializeApp(config);
+    
+            // Get a reference to the Firebase database
+            var database = firebase.database();
+    
+            // Function to send a message to the Firebase database
+            function sendMessage() {
+                var message = document.getElementById("chatInput").value;
+                database.ref("messages").push({
+                    message: message
+                });
+                document.getElementById("chatInput").value = "";
+            }
+    
+            // Function to display the messages from the Firebase database
+            database.ref("messages").on("child_added", function(snapshot) {
+                var message = snapshot.val().message;
+                var chatBox = document.getElementById("chatBox");
+                var messageElement = document.createElement("p");
+                messageElement.innerText = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        </script>
+        
+        <!-- Add the Firebase JavaScript library -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+        <!-- Replace YOUR_API_KEY, YOUR_AUTH_DOMAIN, etc. with your Firebase project's configuration -->
+    </body>
+    <body>
+        <h1>Tell us why you hate him:</h1>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput">
+            <button onclick="sendMessage()">!</button>
+        </div>
+        
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_AUTH_DOMAIN",
+                databaseURL: "YOUR_DATABASE_URL",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_STORAGE_BUCKET",
+                messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+                appId: "YOUR_APP_ID",
+                measurementId: "YOUR_MEASUREMENT_ID"
+            };
+            firebase.initializeApp(config);
+    
+            // Get a reference to the Firebase database
+            var database = firebase.database();
+    
+            // Function to send a message to the Firebase database
+            function sendMessage() {
+                var message = document.getElementById("chatInput").value;
+                database.ref("messages").push({
+                    message: message
+                });
+                document.getElementById("chatInput").value = "";
+            }
+    
+            // Function to display the messages from the Firebase database
+            database.ref("messages").on("child_added", function(snapshot) {
+                var message = snapshot.val().message;
+                var chatBox = document.getElementById("chatBox");
+                var messageElement = document.createElement("p");
+                messageElement.innerText = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        </script>
+        
+        <!-- Add the Firebase JavaScript library -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+        <!-- Replace YOUR_API_KEY, YOUR_AUTH_DOMAIN, etc. with your Firebase project's configuration -->
+    </body>
+    
+    
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #f8f8f8;
+          font-family: Arial, sans-serif;
+        }
+        
+        #container {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        #nav {
+          height: 60px;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          z-index: 2;
+        }
+        
+        #url-bar {
+          width: 100%;
+          max-width: 800px;
+          height: 35px;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          padding: 5px;
+          margin-right: 10px;
+        }
+        
+        #go-button {
+          height: 35px;
+          width: 60px;
+          border: none;
+          border-radius: 5px;
+          background-color: #000000;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        
+        #content {
+          flex: 1;
+          width: 100%;
+          height: calc(100% - 60px);
+          position: relative;
+        }
+        
+        #browser-frame {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+        
+        #loading {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 24px;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="container">
+        <div id="nav">
+          <input type="text" id="url-bar" placeholder="Paste a link or instagram of the hated...">
+          <button id="go-button"><a href="C:\Users\Acer\Desktop\AVISO.txt">CLICK</a></button>
+        </div>
+        <div id="content">
+          <iframe id="browser-frame"></iframe>
+          <div id="loading">searching...</div>
+        </div>
+      </div>
+    
+      <script>
+        const urlBar = document.getElementById('url-bar');
+        const goButton = document.getElementById('go-button');
+        const browserFrame = document.getElementById('browser-frame');
+        const loading = document.getElementById('loading');
+        
+        browserFrame.addEventListener('load', () => {
+          loading.style.display = 'none';
+        });
+        
+        function navigateToUrl() {
+          loading.style.display = 'block';
+          const url = urlBar.value;
+          browserFrame.src = url;
+        }
+        
+        goButton.addEventListener('click', navigateToUrl);
+      </script>
+    </body>
+</body>
+<div class="footer">
+            
+   
+    BY: L.L. PRODUCTIONS &copy;  
+</div>
+<div class="footer">
+            
+   
+     HATE-YOU.com &copy;  2023 ;<a href="https://about.google/intl/ALL_br/community-guidelines/">Terms</a>
+     <a href="https://support.google.com/accounts/answer/61416?hl=pt-BR&co=GENIE.Platform%3DAndroid">Cookies</a>
+     <a href="https://www.instagram.com/l.l.hateyou/">More</a>
+     <a href="https://policies.google.com/privacy?hl=pt-BR">Privacy</a>
+
+ WE ARE NOT RESPONSIBLE FOR HATE SPEECH OR SPEECH SENT BY THE PERSON USING OUR RESOURCES, SO PLEASE USE RESPONSIBLY! BY:LULU
+</html>
+
